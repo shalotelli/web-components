@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/stencil.esm.js"></script>
+  <script nomodule src="/build/stencil.js"></script>
+
+</head>
+<body>
+
+  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+
+  <progress-bar></progress-bar>
+
+  <script>
+    (function() {
+      var progress = document.querySelector('progress-bar'),
+          complete = 0;
+
+      var progressInterval = setInterval(() => {
+        complete += 1;
+        if (complete <= 100) {
+          progress.complete = complete;
+        } else {
+          clearInterval(progressInterval);
+        }
+      }, 100);
+    })();
+  </script>
+</body>
+</html>
