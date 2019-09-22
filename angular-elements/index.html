@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Components</title>
+
+  <style>
+    body {
+      font-family: 'Helvetica Neue';
+    }
+  </style>
+
+  <script src="./dist/angular-elements/runtime-es2015.js" type="module"></script>
+  <script src="./dist/angular-elements/polyfills-es2015.js" type="module"></script>
+  <script src="./dist/angular-elements/scripts.js" defer></script>
+  <script src="./dist/angular-elements/main-es2015.js" type="module"></script>
+</head>
+<body>
+  <h1>Web Components</h1>
+
+  <progressbar-element></progressbar-element>
+
+  <script>
+    (function() {
+      var progress = document.querySelector('progressbar-element'),
+          complete = 0;
+      var progressInterval = setInterval(() => {
+        complete += 1;
+        if (complete <= 100) {
+          progress.setAttribute('complete', complete);
+        } else {
+          clearInterval(progressInterval);
+        }
+      }, 100);
+    })();
+  </script>
+</body>
